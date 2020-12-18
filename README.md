@@ -31,7 +31,7 @@ cd /usr/local/bin
 * Important! Make sure local Docker has configuration setup for 8-10 GB of memory 
 and 2 GB of memory swap. This can be set in preferences by clicking on the gear icon on 
 Docker in the top right corner then going to resources.  
-* Running locally with Docker. Using the docker-compose.yml file in this repo
+* Running locally with Docker. Using the docker-compose.yml file in this repo or better check latest docker-compose.yml from https://github.com/confluentinc/cp-all-in-one/tree/6.0.1-post/cp-all-in-one-community
     * Build the cluster and make compose. `docker-compose up -d`
     * Bring the cluster down with compose. `docker-compose down`
 * Optional add - Docker Confluent Platform Images
