@@ -1,5 +1,8 @@
 # Realtime Streaming POC with Kafka/kSQL with Oracle CDC 
 
+## Architecture for Realtime Streaming using Kafka Streams, KSQL, Kafka Connecct (for Snowflake)
+![Realtime Streaming architecture](https://github.com/productiveAnalytics/kafka-ksql-oracle-realtime/blob/main/realtime_streaming_kafka_ksqlDB_Snowflake.png?raw=true)
+
 ## Installations
 
 Install the brew dependencies for Kafka Connect
