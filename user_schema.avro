@@ -2,24 +2,27 @@
   "type" : "record",
   "name" : "UserRecord",
   "namespace" : "com.productiveanalytics.ksqldb",
-  "doc" : "AVRO schema for User record in KSQL DB",
+  "doc" : "AVRO schema for User record",
   "fields" : [ {
+    "name" : "user_id",
+    "type" : "long"
+  }, {
     "name" : "user_name",
     "type" : "string"
   }, {
-    "name" : "FName",
+    "name" : "first_name",
     "type" : "string"
   }, {
-    "name" : "LName",
-    "type" : "string"
-  }, {
-    "name" : "gender",
-    "type" : "string"
+    "name" : "last_name",
+    "type" : [ "null", "string" ]
   }, {
     "name" : "active",
     "type" : "boolean"
   }, {
     "name" : "last_login",
-    "type" : "string"
+    "type" : [ "null", "string" ]
+  }, {
+    "name" : "contact_ref_id",
+    "type" : [ "null", "long" ]
   } ]
 }
