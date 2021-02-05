@@ -1,0 +1,6 @@
+CREATE OR REPLACE STREAM user_json_stream
+WITH (KAFKA_TOPIC='user_json_topic', VALUE_FORMAT='JSON_SR');
+
+CREATE OR REPLACE TABLE user_json_table
+(_ID BIGINT PRIMARY KEY)
+WITH (KAFKA_TOPIC='user_json_topic', VALUE_FORMAT='JSON_SR');
