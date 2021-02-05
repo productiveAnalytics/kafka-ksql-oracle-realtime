@@ -1,0 +1,96 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://www.disney.com/user.json",
+    "type": "object",
+    "title": "The JSON schema for User",
+    "description": "The root schema comprises the entire JSON document.",
+    "examples": [
+        {
+            "user_id": 100,
+            "user_name": "lalitc",
+            "first_name": "Lalit",
+            "last_name": "Chawathe",
+            "active": true,
+            "last_login": "2020-12-18 09:00:01.123",
+            "contact_ref_id": 111111,
+            "balance": 100.05
+        }
+    ],
+    "required": [
+        "user_id",
+        "user_name",
+        "first_name",
+        "last_name",
+        "active",
+        "last_login",
+        "contact_ref_id",
+        "balance"
+    ],
+    "properties": {
+        "user_id": {
+            "$id": "#/properties/user_id",
+            "type": "integer",
+            "description": "An explanation about the purpose of this instance.",
+            "examples": [
+                100
+            ]
+        },
+        "user_name": {
+            "$id": "#/properties/user_name",
+            "type": "string",
+            "description": "An explanation about the purpose of this instance.",
+            "examples": [
+                "lalitc"
+            ]
+        },
+        "first_name": {
+            "$id": "#/properties/first_name",
+            "type": "string",
+            "description": "An explanation about the purpose of this instance.",
+            "examples": [
+                "Lalit"
+            ]
+        },
+        "last_name": {
+            "$id": "#/properties/last_name",
+            "type": "string",
+            "description": "An explanation about the purpose of this instance.",
+            "examples": [
+                "Chawathe"
+            ]
+        },
+        "active": {
+            "$id": "#/properties/active",
+            "type": "boolean",
+            "description": "An explanation about the purpose of this instance.",
+            "examples": [
+                true
+            ]
+        },
+        "last_login": {
+            "$id": "#/properties/last_login",
+            "type": "string",
+            "description": "An explanation about the purpose of this instance.",
+            "examples": [
+                "2020-12-18 09:00:01.123"
+            ]
+        },
+        "contact_ref_id": {
+            "$id": "#/properties/contact_ref_id",
+            "type": "integer",
+            "description": "An explanation about the purpose of this instance.",
+            "examples": [
+                111111
+            ]
+        },
+        "balance": {
+            "$id": "#/properties/balance",
+            "type": "number",
+            "description": "An explanation about the purpose of this instance.",
+            "examples": [
+                100.05
+            ]
+        }
+    },
+    "additionalProperties": false
+}
