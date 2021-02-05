@@ -1,0 +1,29 @@
+{
+  "type" : "record",
+  "name" : "ContactRecord",
+  "namespace" : "com.productiveanalytics.ksqldb",
+  "doc" : "AVRO schema for Contact record",
+  "fields" : [ {
+    "name" : "contact_id",
+    "type" : "long"
+  }, {
+    "name" : "email",
+    "type" : "string"
+  }, {
+    "name" : "phone",
+    "type" : "long"
+  }, {
+    "name" : "country_code",
+    "type" : "int"
+  }, {
+    "name" : "primary",
+    "type" : "string"
+  }, {
+    "name" : "parent_contact_id",
+    "type" : [
+        "null",
+        "long"
+    ],
+    "default": null
+  } ]
+}
