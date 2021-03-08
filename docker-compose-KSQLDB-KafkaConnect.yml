@@ -2,7 +2,7 @@
 version: '2'
 services:
   zookeeper:
-    image: confluentinc/cp-zookeeper:6.0.1
+    image: confluentinc/cp-zookeeper:6.1.0
     hostname: zookeeper
     container_name: zookeeper
     ports:
@@ -15,7 +15,7 @@ services:
       - ./zookeeper/txn-logs:/var/lib/zookeeper/log
 
   broker:
-    image: confluentinc/cp-kafka:6.0.1
+    image: confluentinc/cp-kafka:6.1.0
     hostname: broker
     container_name: broker
     depends_on:
@@ -43,7 +43,7 @@ services:
       - "./kafka/logs:/tmp/kafka-logs"
 
   schema-registry:
-    image: confluentinc/cp-schema-registry:6.0.1
+    image: confluentinc/cp-schema-registry:6.1.0
     hostname: schema-registry
     container_name: schema-registry
     depends_on:
@@ -85,7 +85,7 @@ services:
   #     CONNECT_LOG4J_LOGGERS: org.apache.zookeeper=ERROR,org.I0Itec.zkclient=ERROR,org.reflections=ERROR
 
   kafka-connect:
-    image: confluentinc/cp-kafka-connect-base:6.0.1
+    image: confluentinc/cp-kafka-connect-base:6.1.0
     container_name: kafka-connect
     depends_on:
       - zookeeper
@@ -159,7 +159,7 @@ services:
   # Run: docker exec -it ksqldb-server ksql http://localhost:8088
   #
   ksqldb-server:
-    image: confluentinc/ksqldb-server:0.14.0
+    image: confluentinc/ksqldb-server:0.15.0
     hostname: ksqldb-server
     container_name: ksqldb-server
     depends_on:
@@ -223,7 +223,7 @@ services:
     tty: true
 
   ksql-datagen:
-    image: confluentinc/ksqldb-examples:6.0.1
+    image: confluentinc/ksqldb-examples:6.1.0
     hostname: ksql-datagen
     container_name: ksql-datagen
     depends_on:
@@ -246,7 +246,7 @@ services:
       STREAMS_SCHEMA_REGISTRY_PORT: 8081
 
   rest-proxy:
-    image: confluentinc/cp-kafka-rest:6.0.1
+    image: confluentinc/cp-kafka-rest:6.1.0
     depends_on:
       - broker
       - schema-registry
