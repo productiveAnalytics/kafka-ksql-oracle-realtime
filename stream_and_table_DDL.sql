@@ -74,3 +74,33 @@ AS
         LATEST_BY_OFFSET(ACTIVE_FLAG) as ACTIVE_FLAG
     FROM user_stream_join_contact_table__stream
     GROUP BY USER_NAME;
+
+ CREATE OR REPLACE STREAM user_stream_equi_join_contact_table_repartitioned__stream
+AS
+    SELECT u_s.CONTACT_REF_ID as CONTACT_ID,
+        u_s.USER_ID as USER_ID,
+        u_s.ROWTIME as USER_TS
+    FROM USER_AVRO_PARTITIONED_STREAM u_s
+        JOIN CONTACT_AVRO_TABLE c_t
+            ON u_s.CONTACT_REF_ID = c_t.CONTACT_ID
+    PARTITION BY u_s.CONTACT_REF_ID;
+---
+
+CREATE OR REPLACE STREAM user_by_dependent_lookup_stream
+    (_ID BIGINT KEY)
+WITH (KAFKA_TOPIC='user_by_dependent_lookup_topic', VALUE_FORMAT='AVRO');
+
+INSERT INTO user_by_dependent_lookup_stream 
+AS 
+    SELECT s.CONTACT_ID, s.USER_ID, s.USER_TS, 'CONTACT' as RELATIONSHIP_TYPE
+    FROM user_stream_equi_join_contact_table_repartitioned__stream s;
+
+--- Create lookup entity for each contact_id that gives map of user_id as key and user's timestamp as value
+CREATE OR REPLACE TABLE user_by_contact_lookup_table 
+AS 
+    SELECT
+    uc_s.CONTACT_ID as CONTACT_ID,
+    'CONTACT' as RELATIONSHIP_TYPE,
+    AS_MAP(COLLECT_LIST(CAST(uc_s.USER_ID AS STRING)), COLLECT_LIST(uc_s.USER_TS)) as PARENT_IDS_MAP
+    FROM user_by_contact_lookup_stream uc_s
+    GROUP BY uc_s.CONTACT_ID;
