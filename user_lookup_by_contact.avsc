@@ -1,0 +1,16 @@
+{
+  "type" : "record",
+  "name" : "UserLookupByDependent",
+  "namespace" : "com.disney.linear.realtime.poc",
+  "doc" : "AVRO schema for value of UserLookupByDependent record (Key is _ID from Dependent entity)",
+  "fields" : [ {
+    "name" : "USER_ID",
+    "type" : "long"
+  }, {
+    "name" : "USER_TS",
+    "type" : "long"
+  }, { 
+    "name" : "RELATIONSHIP_TYPE",
+    "type" : "string"
+  } ]
+}
