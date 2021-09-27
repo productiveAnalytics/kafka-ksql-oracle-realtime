@@ -1,3 +1,9 @@
+---
+--- Materialized table to get 
+---   * First value and Last/Recent value of Kafka message field
+---   * Count of total records by Primary Key
+---
+
 -- VERY Important to ensure the table is recorded from beginning
 SET 'auto.offset.reset' = 'earliest';
 
